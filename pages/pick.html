@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../css/header.css">
   <script src="../js/logout.js"></script>
   <script src="../js/pick.js"></script>
+  
   <title>Document</title>
 </head>
 <body>
@@ -46,14 +47,24 @@
         <div class="login_box off">
             <span class="myname"> </span> <span>님 환영합니다.</span>
             <a href="./mypage.html" class="mypage">나의 정보</a>
-            <button type="button" class="logout_btn" id="logoutBtn">로그아웃</button>
+            <button type="button" class="logout_btn" id="btnLogout">로그아웃</button>
         </div>
     </header>
 
+    <section class="detail">
+        <h1 class="name"></h1>
+        <p class="meta"></p>
+        <img alt="">
+        <p class="desc"></p>
+        <a class="link" href="#" target="_blank" rel="noopener">공식 링크</a>
+      </section>
 
 
     <div class="recommend">
-        <ul class="gid_recom"> </ul>
+        <ul class="gid_recom">
+
+            
+        </ul>
     </div>
 
     <div class="grid_not"> </div>
@@ -79,7 +90,7 @@
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
-        }
+        }        
   </script>
 </body>
 </html>
