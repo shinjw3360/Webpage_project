@@ -1,0 +1,124 @@
+* {margin:0; padding:0; outline: none;}
+body {box-sizing: border-box;}
+ul, li, ol {list-style: none}
+a {color:inherit; text-decoration: none; }
+
+/* header */
+.wrap_full { }
+.mypage {background:#00000069; color:#fee800; border:1px solid #fff; font-size:16px; font-weight: 700; padding:12px; border-radius: 8px;}
+header { display: flex; justify-content: space-between; align-items: center; height:90px; width:100%; max-width:1920px;}
+header .logo_img {height:70px; padding-left:20px; cursor:pointer; }
+/* .login_box {padding-right:20px; gap:10px; display: flex; align-items: center;}
+.login_box.off {display: none;}
+.login_box_wrap.off {display: block;} */
+
+/* 기본값은 아무것도 가정하지 말고, 상태 클래스에서 결정 */
+.login_box { display: none; padding-right:20px; }
+.login_box_wrap { display: block;  padding-right:20px;}
+
+/* 로그인 상태일 때만 반전 */
+.state-logged-in .login_box { display: block; }
+.state-logged-in .login_box_wrap { display: none; }
+
+/* 선택: 초기 페인트 전환 효과 제거(깜빡임 방지) */
+/* .state-logged-in *, .state-logged-out * { transition: none !important; } */
+
+
+.login_box span {font-size:16px; font-weight: 700;}
+/* .login_box.on a {background:#00000069; color:#fee800; border:1px solid #fff; font-size:16px; font-weight: 700; padding:12px; border-radius: 8px;}} */
+.login_box_plus a:nth-child(1) {background:#00000069; color:#fee800; border:1px solid #fff; font-size:16px; font-weight: 700; padding:12px; border-radius: 8px; }
+.login_box_plus a:nth-child(2) {background:#fee800; color:#212121; border:1px solid #fff; font-size:16px; font-weight: 700; padding:12px; border-radius: 8px; }
+header .logo_img img {height:100%;}
+header .nav_progress nav ul {display: flex; align-items: center; gap:60px; font-size:20px; font-weight: 700;}
+header .nav_progress, header .nav_progress nav, header .nav_progress nav ul, header .nav_progress nav ul li, header .nav_progress nav ul {height:100%;}
+header .nav_progress nav ul, li a {display: flex; align-items: center;}
+.main_bar { position: relative; }
+.main_bar > a { position: relative; z-index: 1; display: flex; align-items: center; height:100%; }
+.sub_on{ position: absolute; top: 100%; left: -20px; width: 140px; text-align: center;
+  z-index: 2;  visibility: hidden; opacity: 0; transform: translateY(8px);
+  pointer-events: none;  transition: opacity .15s ease, transform .15s ease;}
+.main_bar:hover .sub_on, .main_bar:focus-within .sub_on{ visibility: visible; opacity: 1; transform: translateY(0);
+  pointer-events: auto;}
+.sub_on a{ display:block; padding:10px 16px; line-height:1.4; text-decoration:none; color:#212121; background-color: #ffffffc9;}
+.sub_on a:hover{ background:#212121; color:#fee800; border-radius: 6px; }
+header, .nav_progress, nav, .nav_progress nav ul{ overflow: visible; }
+
+.contnts_box { width:100%; background: #fee800; position: relative;}
+
+.mini-swiper {position: relative; left:50%; transform: translateX(-50%);}
+.mini-img {width:100%; height:calc(100vh - 120px); height:calc(100svh - 120px); overflow: hidden; position: relative;}
+.mini-img img {width:100%; height:100%;}
+.mini-img .mini-card_title {position: absolute; top:50%; left:50%; transform: translate(-50%, -50%); z-index:100; color:#fee800; font-weight: 700; font-size:50px; text-align: center; line-height: 90px;}
+.train {position: absolute; right:20px; bottom:0; z-index:100;}
+.train_img {width:400px; overflow: hidden;}
+.train_img img {width:100%; height:100%;}
+
+
+
+.logout_btn {
+  outline: none;
+  border:none;
+  background-color: crimson;
+  color:#fff;
+  font-size:16px;
+  font-weight: 700;
+  padding:12px;
+  border-radius: 8px;
+  cursor:pointer;
+}
+
+/* 활성화 */
+
+.family{ width: 100%; height: 520px; overflow: hidden; }
+.family dl{ position: relative; clear: both; max-width: 1920px; height: 520px; margin: 0 auto;}
+.family dl dt{ position: relative; float: left; color: #fff; text-align: center; z-index: 10; transition: all 0.5s linear; width: 128px; height: 100%; border-left: 2px solid rgba(252,251,251,0.80); background: rgba(51,51,51,0.80); cursor: pointer; box-sizing: border-box; }
+.family dl dt figure img, .family dl dt p, .family dl dt .btnC{ display: none; }
+.family dl dt figcaption{ position: absolute; top: 200px; left: -87px; width: 330px; font-size: 18px; color: #fff; font-weight: 700; text-align: right; display: block; transform: rotate(-90deg); }
+.family dl dt:after{ position: absolute; right: 0; bottom: 80px; width: 50px; height: 7px; background: #fff; display: block; content: ""; }
+.family dl dd{ position: absolute; top: 0; left: 50%; width: 1920px; margin-left: -960px; z-index: 5; display: none; }
+.family dl dd figcaption{ display: none; }
+.family_title {font-size:30px; font-weight: 700; text-align: center; margin:30px 0;}
+.family dl dt.on{ width: calc(100% - (128px * 7)); display: table; table-layout: fixed; background-color: transparent; }
+.family dl dt.on:after{ display: none; }
+.family dl dt.on figcaption{ display: none; }
+.family dl dt.on > div { width: 100%; text-align: center; vertical-align: middle; display: table-cell; }
+.family dl dt.on figure img{ display: inline-block; }
+.family dl dt.on p, .family dl dt.on .btnC{ display: block; }
+.family dl dt.on h3:after { width: 1px; height: 40px; margin: 17px auto 15px auto; background: rgba(255,255,255,0.50); display: block; content: ""; }
+.family dl dt.on p { color: #FFFFFF; font-size: 14px; font-weight: 500; }
+.family dl dt.on .btnC {margin-top: 36px;}
+.family dl dt.on .btnC a{ display: inline-block; width: 160px; height: 40px; background-color: #333333; line-height: 40px; text-align: left; padding-left: 20px; box-sizing: border-box; background-image: url(../img/ico_arrow03.png); background-repeat: no-repeat; background-position: 80px center; color: #FFFFFF; font-size: 13px; font-weight: 500; }
+.family dl dt.on + dd{ display: block; }
+.family dl dd {height:100%;}
+.family .main_figure {width:100%; height:100%;}
+.family .main_figure img {width:100%; height:100%; object-fit: cover;}
+
+/* 다른 추천 여행지 */
+.etc_wrap {width:100%; max-width:1920px; text-align: center; margin-top:20px;}
+.etc_btn {outline:none; border:none; background-color: #fee800; color:#212121; font-weight: 700; padding:12px 20px; border-radius: 8px; font-size:20px; cursor:pointer;}
+.pick_img_logo {height:70px;}
+
+.family_title_view {display: flex; align-items: center; justify-content: center; position: relative;}
+.family_title_view button {position: absolute; right:20px; bottom:20px; background: #fee800; color: #212121; border: 1px solid #fff; font-size: 16px; font-weight: 700; 
+ padding: 12px; border-radius: 8px; outline: none; cursor:pointer;}
+
+.recommend_title { display: flex; align-items: center; justify-content: center; position: relative;}
+.recommend_title p {font-size:30px; margin:30px 0; font-weight: 700;}
+.recommend_title button { position: absolute; right:0; bottom:20px; background: #fee800; color: #212121; border: 1px solid #fff; font-size: 16px; font-weight: 700; 
+  padding: 12px; border-radius: 8px; outline: none; cursor:pointer;}
+
+.recom_img_view {position: relative; width:300px; height:300px; overflow: hidden; border-radius: 10px; z-index:20}
+.recom_img_view img {position: absolute; top:0; left:0; width:100%; height:100%; cursor:pointer; object-fit: cover; transform: scale(1);
+  transform-origin: center; transition: transform .80s ease; will-change: transform; }
+.recommend {width:100%; max-width:1240px; margin:30px auto 0;}
+.recom_img {width:300px;}
+.info_recom {color:#212121; display: inline-block; text-align: center; width:100%; font-weight: 700; margin:20px 0;}
+.heart_img {position: absolute; top:20px; right:20px; z-index:100; width:30px; height:30px; background: #212121; border-radius: 6px; padding:2px;}
+.heart_img img {width:30px; height:30px; cursor:pointer; position: relative; top:0px; left:0px;}
+.gid_recom {display: grid; grid-template-columns: repeat(4, 1fr); gap:10px;}
+
+.btn_recombox { width:100%; max-width:1920px; margin:0 auto 30px; text-align: center;}
+.btn_recombox button {outline:none; border:none; background: #212121; color:#fff; padding:12px 20px; border-radius:10px; font-size:16px; font-weight: 700; cursor:pointer;}
+
+.recom_img_view:hover > img{transform: scale(1.2); }
+.aside {position: fixed; right:100px; top:80%; z-index:9999; cursor:pointer;}

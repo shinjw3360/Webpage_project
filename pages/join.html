@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="../css/join.css">
+    <script src="../js/join.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="top">
+            <a href="#" id="backBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+                </svg>
+            </a>
+            <a href="#" id="backHome">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"/>
+                </svg>
+            </a>
+        </div>
+        <form id="signupForm" action="login.html" novalidate>
+            <div class="input-box">
+                <label for="id">아이디</label>
+                <div class="input-icon">
+                    <input type="text" class="box" id="id" placeholder="아이디" required>
+                    <button type="button" class="x-btn" data-target="id">✖</button>
+                </div>
+                <div class="error-msg" id="idError"></div>
+            </div>
+
+            <div class="input-box">
+                <label for="pw">비밀번호</label>
+                <div class="input-icon">
+                    <input type="password" class="box" id="pw" placeholder="비밀번호" required>
+                    <button type="button" class="x-btn" data-target="pw">✖</button>
+                </div>
+                <div class="error-msg" id="pwError"></div>
+            </div>
+
+            <div class="input-box">
+                <label for="mail">이메일주소</label>
+                <div class="input-icon">
+                    <input type="text" class="box" id="mail" placeholder="[선택] 이메일주소">
+                    <button type="button" class="x-btn" data-target="mail">✖</button>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <label for="name">이름</label>
+                <div class="input-icon">
+                    <input type="text" class="box" id="name" placeholder="이름" required>
+                    <button type="button" class="x-btn" data-target="name">✖</button>
+                </div>
+                <div class="error-msg" id="nameError"></div>
+            </div>
+
+            <div class="input-box">
+                <label for="birth">생년월일</label>
+                <div class="input-icon">
+                    <input type="text" class="box" id="birth" placeholder="생년월일(yyyy-mm-dd)" required>
+                    <button type="button" class="x-btn" data-target="birth">✖</button>
+                </div>
+                <div class="error-msg" id="birthError"></div>
+            </div>
+
+            <div class="input-box">
+                <label for="phone">휴대전화번호</label>
+                <div class="input-icon">
+                    <input type="text" class="box" id="phone" placeholder="휴대전화번호(010-****-****)" required>
+                    <button type="button" class="x-btn" data-target="phone">✖</button>
+                </div>
+                <div class="error-msg" id="phoneError"></div>
+            </div>
+
+            <input type="submit" class="btn" id="createId" value="회원가입">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('backBtn').addEventListener('click', function(event) {
+            event.preventDefault();
+            window.location.href = 'login.html';
+        });
+        document.getElementById('backHome').addEventListener('click', function(event){
+            event.preventDefault();
+            window.location.href = '../index.html';
+        });
+    </script>
+</body>
+</html>

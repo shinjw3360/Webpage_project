@@ -1,0 +1,107 @@
+body{
+  /* background-image: url(../project_Travel/이미지/banner.jpg); */
+  background-color:#ffffff;
+}
+
+input, button { outline: none;}
+
+.container{
+  width: 25%;
+  background-color: #fae10089;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  border-radius: 10px;
+  padding: 20px 30px;
+  min-height: 700px;
+  display: flex; 
+  flex-direction: column;
+  box-shadow: 
+  0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.input-box{
+  text-align: left;
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+.input-icon{
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.input-icon .box{
+  width: 100%;
+  /* padding-right: 30px; */
+}
+.x-btn {
+  position: absolute;
+  right: 10px;
+  top: 40%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 15px;
+  cursor: pointer;
+}
+.x-btn:hover {
+  color: #5c5c5cc5;
+}
+.box.error {
+  border: 1px solid red;
+}
+.error-msg {
+  color: red;
+}
+.box, .btn {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  outline: none;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+}
+.box{
+  height: 50px;
+}
+.btn{
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 30px;
+  background-color: #e6e6e6;
+  color: #121212;
+  border: none;
+}
+.btn:hover{
+  background-color: #cce9ff;
+  transform: translateY(-3px);
+  color: #121212;
+  cursor: pointer;
+}
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+.top a svg {
+  cursor: pointer;
+  fill: #333;
+  transition: fill 0.3s ease;
+}
+.top a:hover svg {
+  fill: #588cb4;
+}
+
+/* 마이페이지 */
+.backHome {margin-left:auto;}
+
+input:read-only {
+  background-color: #cccccc;
+  cursor:inherit
+}
