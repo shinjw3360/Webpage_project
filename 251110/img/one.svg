@@ -1,0 +1,13 @@
+<svg viewBox="0 0 200 200" width="200" height="200" aria-label="코리아 구석구석 원형 로고">
+  <defs>
+    <!-- 반지름 70짜리 원 경로 -->
+    <path id="circlePath" d="M100,100 m-70,0 a70,70 0 1,1 140,0 a70,70 0 1,1 -140,0"></path>
+  </defs>
+
+  <!-- 텍스트 스타일은 필요에 맞게 조절 -->
+  <text font-size="16" font-weight="700" letter-spacing="6" fill="#111">
+    <textPath href="#circlePath" startOffset="50%" text-anchor="middle">
+      · 코리아 구석구석 ·
+    </textPath>
+  </text>
+</svg>

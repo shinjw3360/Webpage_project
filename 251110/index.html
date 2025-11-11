@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/train_aside.jpg">
+    <title>코리아 구석구석</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/swiper-element-bundle.min.js"></script>
+    <script src="js/logout.js"></script>
+</head>
+
+<body>
+    <div class="wrap_full">
+        <header>
+            <div class="logo_img" onclick="location.href='index.html'">
+                <img src="img/logo.png" alt="팝업창 로고">
+            </div>
+
+            <div class="nav_progress">
+                <nav>
+                    <ul>
+                        <li class="main_bar"><a href="#">홈</a></li>
+                        <li class="main_bar"><a href="#">여행 코스</a>
+                            <div class="sub_on off">
+                                <a href="#">추천 코스</a>
+                            </div>
+                        </li>
+                        <li class="main_bar"><a href="#">여행 정보</a>
+                            <div class="sub_on off">
+                                <a href="#">추천 여행지</a>
+                            </div>
+                        </li>
+
+                        <li class="main_bar"><a href="#">나의 일정</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="login_box_wrap">
+                <div class="login_box_plus">
+                    <a href="pages/login.html">로그인</a>
+                    <a href="pages/join.html">회원가입</a>
+                </div>
+            </div>
+
+            <div class="login_box off">
+                <span class="myname"> </span> <span>님 환영합니다.</span>
+                <a href="pages/mypage.html" class="mypage">나의 정보</a>
+                <button type="button" class="logout_btn" id="logoutBtn">로그아웃</button>
+            </div>
+        </header>
+
+
+        <div class="contnts_box">
+            <swiper-container class="mini-swiper">
+                <swiper-slide class="mini-card">
+                    <div class="mini-img"><img src="img/banner/banner.png" alt=""></div>
+                </swiper-slide>
+
+                <swiper-slide class="mini-card">
+                    <div class="mini-img"><img src="img/banner/banner02.png" alt=""></div>
+                </swiper-slide>
+
+                <swiper-slide class="mini-card">
+                    <div class="mini-img"><img src="img/banner/banner03.png" alt=""></div>
+                </swiper-slide>
+
+                <swiper-slide class="mini-card">
+                    <div class="mini-img"><img src="img/banner/banner04.png" alt=""></div>
+                </swiper-slide>
+
+                <swiper-slide class="mini-card">
+                    <div class="mini-img"><img src="img/banner/banner05.png" alt=""></div>
+                </swiper-slide>
+
+                <swiper-slide class="mini-card">
+                    <div class="mini-img">
+                        <video autoplay muted>
+                            <source src="img/131195-749706805_small.mp4">
+                        </video>
+                        <p class="mini-card_title">대한민국의 멋진여행, 행복한 추억을 <br> 코리아 구석구석이 함께 합니다.</p>
+                    </div>
+
+                </swiper-slide>
+            </swiper-container>
+
+            <div class="train">
+                <div class="train_img">
+                    <img src="img/train.gif" alt="">
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="family">
+            <div class="family_title_view">
+                <p class="family_title">TOP8 여행지</p>
+                <button type="button">더보기</button>
+            </div>
+            <dl>
+                <dt>
+                    <div>
+                        <h3>
+                            <figure><img src="img/plus/seoul_logo.png" alt="" class="pick_img_logo">
+                                <figcaption>SEOUL, MY SOUL</figcaption>
+                            </figure>
+                        </h3>
+                        <p>서울을 이루는 중심에는 사람이 있고, <br>서울을 향한 다양한 마음이 모여 더 좋은 서울을 만들어 갑니다.</p>
+                        <div class="btnC">
+                            <a href="https://korean.visitseoul.net/" target="_blank">바로가기</a>
+                        </div>
+                    </div>
+                </dt>
+                <dd>
+                    <figure class="main_figure"><img src="img/plus/pick.png" alt="">
+                        <figcaption>SEOUL, MY SOUL</figcaption>
+                    </figure>
+                </dd>
+                <dt>
+                    <div>
+                        <h3>
+                            <figure><img src="img/plus/gyeong_logo.png" alt="" class="pick_img_logo">
+                                <figcaption>Golden City ( Beautiful Gyeongju )</figcaption>
+                            </figure>
+                        </h3>
+                        <p>천년고도 신라의 수도, 경주 불국사</p>
+                        <div class="btnC">
+                            <a href="https://www.gyeongju.go.kr/tour/page.do?mnu_uid=2267" target="_blank">바로가기</a>
+                        </div>
+                    </div>
+                </dt>
+                <dd>
+                    <figure class="main_figure"><img src="img/plus/pick8.png" alt="">
+                        <figcaption>천년고도 신라의 수도, 경주 불국사</figcaption>
+                    </figure>
+                </dd>
+                <dt>
+                    <div>
+                        <h3>
+                            <figure><img src="img/plus/boseong_logo.png" alt="">
+                                <figcaption>Boseong</figcaption>
+                            </figure>
+                        </h3>
+                        <p>전남보성 녹차밭은 전남 보성군에 펼쳐진 대규모 차(茶) 재배지로, <br> 층층이 이어진 초록 테라스(계단식 밭) 풍경으로 유명합니다.</p>
+                        <div class="btnC">
+                            <a href="https://www.tripadvisor.co.kr/Attractions-g2024833-Activities-Boseong_gun_Jeollanam_do.html"
+                                target="_blank">바로가기</a>
+                        </div>
+                    </div>
+                </dt>
+                <dd>
+                    <figure class="main_figure"><img src="img/plus/pick10.png" alt="보성 녹차밭">
+                        <figcaption>보성 녹차밭</figcaption>
+                    </figure>
+                </dd>
+                <dt>
+                    <div>
+                        <h3>
+                            <figure><img src="img/h3_darakhyu01.png" alt="DARAKHYU">
+                                <figcaption>DARAKHYU</figcaption>
+                            </figure>
+                        </h3>
+                        <p>여행자들을 가장 잘 이해하는 스마트한 호텔, <br>다락휴에서 색다른 여행을 시작하세요.</p>
+                        <div class="btnC">
+                            <a href="https://www.walkerhill.com/darakhyu/hub/m/kr/" target="_blank">바로가기</a>
+                        </div>
+                    </div>
+                </dt>
+                <dd>
+                    <figure class="main_figure"><img src="img/idx_familyDarakhyu.jpg" alt="다락휴">
+                        <figcaption>다락휴</figcaption>
+                    </figure>
+                </dd>
+                <dt>
+                    <div>
+                        <h3>
+                            <figure><img src="img/h3_transitHotel01.png" alt="Incheon Airport Transit Hotel">
+                                <figcaption>INCHEON AIRPORT TRANSIT HOTEL</figcaption>
+                            </figure>
+                        </h3>
+                        <p>인천국제공항 환승호텔과 함께 <br>안락하고 편안한 여행을 즐겨 보세요.</p>
+                        <div class="btnC">
+                            <a href="https://www.trip.com/hotels/list/searchresults?city=410&hotelid=57822577&locale=en_xx&curr=usd&allianceid=742331&sid=4137730&ppcid=ckid-32816247660_adid-730798574086_akid-kwd-304087827059_adgid-171983178217&utm_source=google&utm_medium=cpc&utm_campaign=15575527837&gad_source=1&gad_campaignid=15575527837&gbraid=0AAAAABn2eFL2pawjd10BWzuhn4YeMLcwi&gclid=CjwKCAiAt8bIBhBpEiwAzH1w6VcqlLC9nyjvu3e4di_6awl8OTv_LaWjrUoXzp0LlFrvacklvK0LjRoCl3sQAvD_BwE&cityName=Incheon&checkin=2025/11/11&checkout=2025/11/12&highPrice=-1&barCurr=USD&crn=1&adult=2&searchBoxArg=t&ctm_ref=ix_sb_dl&domestic=true&listFilters=29~1*29*1~2*2"
+                                target="_blank">바로가기</a>
+                        </div>
+                    </div>
+                </dt>
+                <dd>
+                    <figure class="main_figure"><img src="img/idx_familyTransit.jpg" alt="인천공항 환승호텔">
+                        <figcaption>인천공항 환승호텔</figcaption>
+                    </figure>
+                </dd>
+                <dt>
+                    <div>
+                        <h3>
+                            <figure><img src="img/h3_matinaLounge01.png" alt="Matina Lounge">
+                                <figcaption>MATINA LOUNGE</figcaption>
+                            </figure>
+                        </h3>
+                        <p>편안한 시설, 최고의 맛, <br>국내 여행의 시작을 마티나 라운지와 함께 하세요.</p>
+                        <div class="btnC">
+                            <a href="https://www.walkerhill.com/transithotel/kr/lounge/Matina.jsp"
+                                target="_blank">바로가기</a>
+                        </div>
+                    </div>
+                </dt>
+                <dd>
+                    <figure><img src="img/idx_familyMatina.jpg" alt="마티나 라운지">
+                        <figcaption>마티나 라운지</figcaption>
+                    </figure>
+                </dd>
+                <dt>
+                    <div>
+                        <h3>
+                            <figure><img src="img/h3_pinxGolfClub01.png" alt="PINX GOLF CLUB">
+                                <figcaption>PINX GOLF CLUB</figcaption>
+                            </figure>
+                        </h3>
+                        <p>천혜의 자연 위에 그림처럼 디자인된 <br>글로벌 100대 골프 클럽의 명성을 직접 체험해 보세요.</p>
+                        <div class="btnC">
+                            <a href="https://pinxgc.thepinx.co.kr/" target="_blank">바로가기</a>
+                        </div>
+                    </div>
+                </dt>
+                <dd>
+                    <figure><img src="img/idx_familyPinxGolfClub.jpg" alt="핀크스 골프 클럽">
+                        <figcaption>핀크스 골프 클럽</figcaption>
+                    </figure>
+                </dd>
+                <dt>
+                    <div>
+                        <h3>
+                            <figure><img src="img/h3_podoHotel01.png" alt="PODO HOTEL">
+                                <figcaption>PODO HOTEL</figcaption>
+                            </figure>
+                        </h3>
+                        <p>호텔 그 자체가 하나의 예술 작품인 <br>제주 포도호텔에서 진정한 힐링을 경험해 보세요.</p>
+                        <div class="btnC">
+                            <a href="https://kr.hotels.com/Hotel-Search?selected=14799434&locale=ko_KR&HotelID=14799434&siteid=300000041&semcid=HCOM-KR.UB.GOOGLE.PT-c-KO.HOTEL&semdtl=a115302228775.b1134543329647.g1kwd-1576879154.e1c.m1CjwKCAiAt8bIBhBpEiwAzH1w6QWS-CpiodksXgmL6XeYgfFmMG4DqEI44Mf3bXSK9p-mMtPFnjTSyhoCANMQAvD_BwE.r1ce08f7ede24777f04bd509ede79250ecd893c9dff2905f04bab9e05cfa21a63c.c16BWi3ocCMvspz61QO5IGSQ.j19197620.k11009873.d1570234131708.h1e.i1.l1.n1.o1.p1.q1.s1podo%20hotel.t1.x1.f1.u1.v1.w1&gad_source=1&gad_campaignid=15302228775&gbraid=0AAAAACTxZ9a-TFRSkfgRQfPGdqxjLybph&gclid=CjwKCAiAt8bIBhBpEiwAzH1w6QWS-CpiodksXgmL6XeYgfFmMG4DqEI44Mf3bXSK9p-mMtPFnjTSyhoCANMQAvD_BwE&regionId=6048315&sort=RECOMMENDED&startDate=2025-11-25&endDate=2025-11-26&destination=%ED%8F%AC%EB%8F%84%ED%98%B8%ED%85%94&theme=&userIntent=&categorySearch=&useRewards=false"
+                                target="_blank">바로가기</a>
+                        </div>
+                    </div>
+                </dt>
+                <dd>
+                    <figure class="main_figure"><img src="img/idx_familyPodoHotel.jpg" alt="포도 호텔">
+                        <figcaption>포도 호텔</figcaption>
+                    </figure>
+                </dd>
+            </dl>
+        </div>
+
+        <div class="recommend">
+            <div class="recommend_title">
+                <p> 추천 여행지 </p>
+            </div>
+
+            <ul class="gid_recom">
+                <li class="recom_img" data-title="청사포 다릿돌전망대">
+                    <div class="recom_img_view" role="button" aria-label="청사포 다릿돌전망대 상세 보기" tabindex="0">
+                        <img src="img/pick/recommendation01.jpg" alt="청사포 다릿돌전망대" class="random" loading="lazy">
+                        <div class="heart_img" role="button" aria-label="찜 토글" tabindex="0" data-heart="0">
+                            <img src="img/heart.svg" alt="">
+                        </div>
+                    </div>
+                    <span class="info_recom name">청사포 다릿돌전망대</span>
+                </li>
+
+
+                <li class="recom_img" data-title="석촌 호수">
+                    <div class="recom_img_view" role="button" aria-label="석촌 호수 상세 보기" tabindex="0">
+                        <img src="img/pick/recommendation02.jpg" alt="석촌 호수" class="random" loading="lazy">
+                        <div class="heart_img" role="button" aria-label="찜 토글" tabindex="0" data-heart="0">
+                            <img src="img/heart.svg" alt="">
+                        </div>
+                    </div>
+                    <span class="info_recom name">석촌 호수</span>
+                </li>
+
+                <li class="recom_img" data-title="물미해안전망대">
+                    <div class="recom_img_view" >
+                        <img src="img/pick/recommendation03.jpg" alt="" class="random"
+                            onclick="location.href='pages/pick.html'" aria-label="찜 토글" tabindex="0" data-heart="0">
+                        <div class="heart_img" role="button" aria-label="찜 토글" tabindex="0" data-heart="0">
+                            <img src="img/heart.svg" alt="">
+                        </div>
+                    </div>
+                    <span class="info_recom name">물미해안전망대</span>
+                </li>
+
+                <li class="recom_img" data-title="성당 시장">
+                    <div class="recom_img_view" role="button" aria-label="성당 시장 상세 보기" tabindex="0">
+                        <img src="img/pick/recommendation04.jpg" alt="" class="random"
+                            onclick="location.href='pages/pick.html'">
+                        <div class="heart_img" role="button" aria-label="찜 토글" tabindex="0" data-heart="0">
+                            <img src="img/heart.svg" alt="">
+                        </div>
+                    </div>
+                    <span class="info_recom name">성당 시장</span>
+                </li>
+            </ul>
+
+            <div class="btn_recombox">
+                <button type="button" id="btnRecom"> 새로운 추천지 </button>
+            </div>
+        </div>
+
+        <div class="aside">
+            <div class="aside_img">
+                <img src="img/train_aside.gif" alt="">
+            </div>
+        </div>
+
+    </div> <!-- wrap_full -->
+
+    <script>
+        (function () {
+            const el = document.querySelector('.mini-swiper');
+            if (!el) return;
+            Object.assign(el, {
+                loop: true,
+                autoplay: { delay: 3500, disableOnInteraction: false },
+                speed: 600
+            });
+
+            const ready = () => {
+                const sw = el.swiper;
+                if (!sw) return requestAnimationFrame(ready);
+
+                const handle = () => {
+                    const slide = sw.slides[sw.activeIndex];
+                    const activeVideo = slide?.querySelector('video');
+
+                    el.querySelectorAll('video').forEach(v => {
+                        if (v !== activeVideo) {
+                            try { v.pause(); } catch (_) { }
+                            // 되감기 원하면 ↓ 주석 해제
+                            // v.currentTime = 0;
+                        }
+                    });
+
+                    if (activeVideo) {
+                        activeVideo.setAttribute('playsinline', '');
+                        if (activeVideo.muted !== true) activeVideo.muted = true;
+                        // 메타데이터가 아직이면 메타데이터 후 재생
+                        if (Number.isFinite(activeVideo.duration) && activeVideo.duration > 0) {
+                            activeVideo.play().catch(() => { });
+                        } else {
+                            activeVideo.addEventListener('loadedmetadata', () => {
+                                activeVideo.play().catch(() => { });
+                            }, { once: true });
+                        }
+                    }
+                };
+
+                sw.on('init', handle);
+                sw.on('slideChange', handle);
+
+                handle();
+            };
+
+            el.initialize();
+            ready();
+        })();
+
+        (function () {
+            try {
+                var saved = localStorage.getItem('loggedInUser');
+                var u = saved ? JSON.parse(saved) : null;
+                document.documentElement.classList.add(u ? 'state-logged-in' : 'state-logged-out');
+            } catch (e) {
+                document.documentElement.classList.add('state-logged-out');
+            }
+        })();
+
+        const aside = document.querySelector('.aside');
+        if (aside) {
+            const toggleAside = () => {
+                aside.style.display = (window.scrollY <= 10) ? 'none' : 'block';
+            };
+
+            toggleAside();
+            window.addEventListener('scroll', toggleAside, { passive: true });
+
+            aside.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }     
+    </script>
+
+</body>
+
+</html>

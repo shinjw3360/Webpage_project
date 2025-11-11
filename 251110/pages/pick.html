@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/pick.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <script src="../js/logout.js"></script>
+  <script src="../js/pick.js"></script>
+  
+  <title>Document</title>
+</head>
+<body>
+  <div class="wrap_full">
+    <header>
+        <div class="logo_img" onclick="location.href='../index.html'">
+            <img src="../img/logo.png" alt="팝업창 로고">
+        </div>
+
+        <div class="nav_progress">
+            <nav>
+                <ul>
+                    <li class="main_bar"><a href="../index.html">홈</a></li>
+                    <li class="main_bar"><a href="#">여행 코스</a>
+                        <div class="sub_on off">
+                            <a href="#">추천 코스</a>
+                        </div>
+                    </li>
+                    <li class="main_bar"><a href="#">여행 정보</a>
+                        <div class="sub_on off">
+                            <a href="#">추천 여행지</a>
+                        </div>
+                    </li>
+
+                    <li class="main_bar"><a href="#">나의 일정</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="login_box_wrap">
+            <div class="login_box_plus">
+                <a href="./login.html">로그인</a>
+                <a href="./join.html">회원가입</a>
+            </div>
+        </div>
+
+        <div class="login_box off">
+            <span class="myname"> </span> <span>님 환영합니다.</span>
+            <a href="./mypage.html" class="mypage">나의 정보</a>
+            <button type="button" class="logout_btn" id="btnLogout">로그아웃</button>
+        </div>
+    </header>
+
+    <section class="detail">
+        <h1 class="name"></h1>
+        <p class="meta"></p>
+        <img alt="">
+        <p class="desc"></p>
+        <a class="link" href="#" target="_blank" rel="noopener">공식 링크</a>
+      </section>
+
+
+    <div class="recommend">
+        <ul class="gid_recom">
+
+            
+        </ul>
+    </div>
+
+    <div class="grid_not"> </div>
+
+  </div>
+
+  <div class="aside">
+    <div class="aside_img">
+        <img src="../img/train_aside.gif" alt="">
+    </div>
+</div>
+  <script>
+        const aside = document.querySelector('.aside');
+        if (aside) {
+            const toggleAside = () => {
+                aside.style.display = (window.scrollY <= 10) ? 'none' : 'block';
+            };
+
+            toggleAside();
+            window.addEventListener('scroll', toggleAside, { passive: true });
+
+            aside.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }        
+  </script>
+</body>
+</html>

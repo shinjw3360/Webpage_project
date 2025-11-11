@@ -1,14 +1,13 @@
 (() => {
   /* ============================ 설정 & 공통 ============================ */
-  const TRAVEL_JSON_URL = 'js/travel.json';      // index.html 기준 경로
-  const SAVE_SELECTED   = 'travel_picks_v1';     // 랜덤/선택 저장 (travel.json 스키마)
-  const WKEY            = 'wishList_v1';         // 위시리스트(하트) 저장 (travel.json 스키마)
+  const TRAVEL_JSON_URL = 'js/travel.json';
+  const SAVE_SELECTED   = 'travel_picks_v1';
+  const WKEY            = 'wishList_v1';
   const WPING           = 'wishList_ping';
 
   const HEART_OFF = 'img/heart.svg';
   const HEART_ON  = 'img/heart_on.svg';
 
-  // 문자열 정규화 (한글 NFC, 제로폭 제거, 연속공백 1칸, trim)
   const norm = (s) => String(s ?? '')
     .normalize('NFC')
     .replace(/\u200B/g, '')
@@ -33,15 +32,47 @@
   const shuffle = (a)=>{ for(let i=a.length-1;i>0;i--){ const j=(Math.random()*(i+1))|0; [a[i],a[j]]=[a[j],a[i]]; } return a; };
 
   /* ============================ travel.json 로드/인덱스 ============================ */
-  let TRAVEL_DAYS = [];
-  // key: norm(name) => { day, region, city, item, local, image, name }  (name = 원본 표시용)
-  let TRAVEL_INDEX = {};
+  let TRAVEL_DAYS = [];       // 통합 스키마: [{day,region,city,items,locals,images,order}]
+  let TRAVEL_INDEX = {};      // key = norm(name) → { day, region, city, item, local, image, name }
+
+  // 스키마 자동 감지/평탄화
+  function parseTravel(raw){
+    // 형태 A: 최상위가 배열
+    if (Array.isArray(raw)) {
+      return raw.map(d=>({
+        day: d?.day, region: d?.region, city: d?.city,
+        items: d?.items||[], locals: d?.locals||{}, images: d?.images||{}, order: d?.order||[]
+      }));
+    }
+    // 형태 B: { trips: [ { days:[...], region?, city? } ] }
+    if (raw && Array.isArray(raw.trips)) {
+      const out = [];
+      for (const trip of raw.trips) {
+        const tripRegion = trip?.region || trip?.title || '';
+        const tripCity   = trip?.city   || '';
+        for (const day of (trip.days||[])) {
+          out.push({
+            day   : day?.day,
+            region: day?.region || tripRegion,
+            city  : day?.city   || tripCity,
+            items : day?.items  || [],
+            locals: day?.locals || trip?.locals || {},
+            images: day?.images || trip?.images || {},
+            order : day?.order  || []
+          });
+        }
+      }
+      return out;
+    }
+    return [];
+  }
 
   async function ensureTravel(){
     if (TRAVEL_DAYS.length) return;
     const res  = await fetch(TRAVEL_JSON_URL, {cache:'no-store'});
-    const days = await res.json();
-    TRAVEL_DAYS = Array.isArray(days) ? days : [];
+    const raw  = await res.json();
+    TRAVEL_DAYS = parseTravel(raw);
+
     TRAVEL_INDEX = {};
     TRAVEL_DAYS.forEach(d=>{
       const {day,region,city,items=[],locals={},images={}} = d||{};
@@ -49,11 +80,15 @@
         const displayName = String(it?.name || '').trim();
         const key = norm(displayName);
         if(!key) return;
+        // day.locals/images 또는 trip.locals/images를 displayName/정규화 키 양쪽으로 조회
+        const localVal = locals[displayName] ?? locals[key] ?? null;
+        const imageVal = images[displayName] ?? images[key] ?? null;
+
         TRAVEL_INDEX[key] = {
           day, region, city,
           item: it,
-          local: locals[displayName] || locals[key] || null,
-          image: images[displayName] || images[key] || null,
+          local: localVal,
+          image: imageVal,
           name: displayName
         };
       });
@@ -121,16 +156,11 @@
       d.items  = (d.items||[]).filter(it => norm(it?.name) !== key);
       if(before !== d.items.length) changed = true;
 
-      // locals/images/order 키는 표시명(원본 name) 기준으로 들어가 있으니 norm 비교해서 삭제
       if(d.locals){
-        Object.keys(d.locals).forEach(k=>{
-          if(norm(k)===key){ delete d.locals[k]; changed=true; }
-        });
+        Object.keys(d.locals).forEach(k=>{ if(norm(k)===key){ delete d.locals[k]; changed=true; } });
       }
       if(d.images){
-        Object.keys(d.images).forEach(k=>{
-          if(norm(k)===key){ delete d.images[k]; changed=true; }
-        });
+        Object.keys(d.images).forEach(k=>{ if(norm(k)===key){ delete d.images[k]; changed=true; } });
       }
       if(Array.isArray(d.order)){
         const b = d.order.length;
@@ -150,7 +180,7 @@
     box.classList.toggle('active', on);
   }
 
-  // 카드 데이터 (하트/링크용)
+  /* ============================ 카드 데이터 ============================ */
   function getCardData(li){
     const img = li.querySelector('.recom_img_view img, img.random');
     const rawTitle =
@@ -167,7 +197,7 @@
     document.querySelectorAll('.recom_img .heart_img').forEach(box=>setHeart(box, false));
   }
 
-  // 성공시에만 알림/UI 확정, 실패 시 UI 원복
+  /* ============================ 하트 토글 ============================ */
   async function toggleHeart(box){
     const li = box.closest('.recom_img'); if(!li) return;
     const { title } = getCardData(li);
@@ -248,7 +278,7 @@
       const best = t?.image || pick.src;
       if(img){ img.src = best; img.alt = pick.title; }
       if(txt) txt.textContent = pick.title;
-      li.setAttribute('data-title', pick.title); // 데이터 소스 확실히
+      li.setAttribute('data-title', pick.title);
       li.dataset.href = `pages/pick.html?title=${encodeURIComponent(pick.title)}`;
     });
 
@@ -327,12 +357,20 @@
 })();
 
 /* ============================ 선택 타이틀 전달(goPick) ============================ */
-// goPick(['광안리 해변','태종대', ...]) → localStorage에 travel.json 스키마로 저장 후 pick.html로 이동
 async function goPick(selectedTitles){
   try{
-    const res  = await fetch('js/travel.json', {cache:'no-store'});
-    const days = await res.json();
-    const SRC = Array.isArray(days) ? days : [];
+    const res = await fetch('js/travel.json', {cache:'no-store'});
+    const raw = await res.json();
+    const SRC = (()=>{ // 동일 파서 재사용
+      // 간단중복: 위의 parseTravel를 외부로 빼기 싫어서 인라인
+      if (Array.isArray(raw)) return raw;
+      if (raw && Array.isArray(raw.trips)) {
+        const out=[]; for(const trip of raw.trips){ for(const day of (trip.days||[])){
+          out.push({ day:day?.day, region:day?.region||trip?.region||trip?.title||'', city:day?.city||trip?.city||'', items:day?.items||[], locals:day?.locals||trip?.locals||{}, images:day?.images||trip?.images||{}, order:day?.order||[] });
+        }} return out;
+      }
+      return [];
+    })();
 
     const set = new Set((selectedTitles||[]).map(s=>norm(s)));
     const out = [];

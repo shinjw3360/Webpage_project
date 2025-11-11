@@ -1,0 +1,41 @@
+.mypage {background:#00000069; color:#fee800; border:1px solid #fff; font-size:16px; font-weight: 700; padding:12px; border-radius: 8px;}
+header { display: flex; justify-content: space-between; align-items: center; height:90px; width:100%; max-width:1920px;}
+header .logo_img {height:70px; padding-left:20px; cursor:pointer; }
+
+.login_box span {font-size:16px; font-weight: 700;}
+/* .login_box.on a {background:#00000069; color:#fee800; border:1px solid #fff; font-size:16px; font-weight: 700; padding:12px; border-radius: 8px;}} */
+.login_box_plus a:nth-child(1) {background:#00000069; color:#fee800; border:1px solid #fff; font-size:16px; font-weight: 700; padding:12px; border-radius: 8px; }
+.login_box_plus a:nth-child(2) {background:#fee800; color:#212121; border:1px solid #fff; font-size:16px; font-weight: 700; padding:12px; border-radius: 8px; }
+header .logo_img img {height:100%;}
+header .nav_progress nav ul {display: flex; align-items: center; gap:60px; font-size:20px; font-weight: 700;}
+header .nav_progress, header .nav_progress nav, header .nav_progress nav ul, header .nav_progress nav ul li, header .nav_progress nav ul {height:100%;}
+header .nav_progress nav ul, li a {display: flex; align-items: center;}
+.main_bar { position: relative; }
+.main_bar > a { position: relative; z-index: 1; display: flex; align-items: center; height:100%; }
+.sub_on{ position: absolute; top: 100%; left: -20px; width: 140px; text-align: center;
+  z-index: 2;  visibility: hidden; opacity: 0; transform: translateY(8px);
+  pointer-events: none;  transition: opacity .15s ease, transform .15s ease; z-index:999;}
+.main_bar:hover .sub_on, .main_bar:focus-within .sub_on{ visibility: visible; opacity: 1; transform: translateY(0);
+  pointer-events: auto;}
+.sub_on a{ display:block; padding:10px 16px; line-height:1.4; text-decoration:none; color:#212121; background-color: #ffffffc9;}
+.sub_on a:hover{ background:#212121; color:#fee800; border-radius: 6px; }
+header, .nav_progress, nav, .nav_progress nav ul{ overflow: visible; }
+
+.login_box { display: none; padding-right:20px; }
+.login_box_wrap { display: block;  padding-right:20px;}
+
+/* 로그인 상태일 때만 반전 */
+.state-logged-in .login_box { display: block; }
+.state-logged-in .login_box_wrap { display: none; }
+
+.logout_btn {
+  outline: none;
+  border:none;
+  background-color: crimson;
+  color:#fff;
+  font-size:16px;
+  font-weight: 700;
+  padding:12px;
+  border-radius: 8px;
+  cursor:pointer;
+}
